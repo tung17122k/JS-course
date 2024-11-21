@@ -1,0 +1,14 @@
+body {
+  height: 500vh;
+  width: 500vw;
+}
+.boxed {
+  height: 200px;
+  width: 200px;
+  background-color: orange;
+  overflow: auto;
+}
+.boxed-content {
+  height: 600px;
+  width: 600px;
+}

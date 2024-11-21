@@ -1,0 +1,121 @@
+/* General Reset */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span,
+img,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Player Container */
+.player {
+  width: 300px;
+  margin: 50px auto;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.player-box {
+  padding: 20px;
+}
+
+.player-media {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.player-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+.player-image.is-playing {
+  animation: rotate 10s forwards infinite linear;
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Progress Bar */
+.progress {
+  margin: 10px 0;
+}
+
+#progress-bar {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: #555;
+  border-radius: 5px;
+  outline: none;
+}
+
+#progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#progress-bar::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Player Number */
+.player-number {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Player Tool */
+.player-tool {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  background: #222;
+}
+
+.player-tool i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.player-tool i:hover {
+  color: #1db954;
+}
+
+.player-prev,
+.player-play,
+.player-next {
+  padding: 10px;
+}

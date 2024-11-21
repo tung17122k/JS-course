@@ -1,0 +1,60 @@
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+}
+
+/* Style the tabs and tab content */
+.tab {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.tab-list {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+}
+
+.tab-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-bottom: none;
+  background-color: #f4f4f4;
+  user-select: none;
+}
+
+.tab-item:hover {
+  background-color: #e0e0e0;
+}
+
+.tab-item.active {
+  background-color: #fff;
+  border-bottom: 2px solid #fff;
+  pointer-events: none;
+}
+
+.tab-wrapper {
+  border: 2px solid #ccc;
+  padding: 20px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.post-title {
+  color: #333;
+  margin-bottom: 15px;
+}

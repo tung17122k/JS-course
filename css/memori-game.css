@@ -1,0 +1,107 @@
+.grid {
+  max-width: 660px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.card {
+  position: relative;
+  transition: all 0.4s linear;
+  transform-style: preserve-3d;
+  margin: 5px;
+  height: 150px;
+  width: 150px;
+}
+.card.back.front {
+  width: inherit;
+  height: inherit;
+}
+.card.selected {
+  transform: rotateY(180deg);
+}
+.back .front {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.front {
+  background-color: #fab942 url(./img/question.png) no-repeat center center /
+    contain;
+  position: absolute;
+}
+.back {
+  position: absolute;
+  transform: rotateY(180deg);
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+}
+
+.matched {
+  border: 0;
+  background-image: none !important;
+  pointer-events: none;
+}
+.matched .front {
+  background-color: white !important;
+}
+.joke {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 50px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+.joke-heading {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.joke-button {
+  border: 0;
+  outline: none;
+  display: block;
+  padding: 15px 30px;
+  border-radius: 8px;
+  color: white;
+  background-color: #20e3b2;
+  position: relative;
+  height: 45px;
+  width: 100%;
+  max-width: 200px;
+}
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 5px solid white;
+  border-left: 5px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s infinite linear forwards;
+  display: none;
+}
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.joke.is-loading .joke-button span {
+  display: none;
+}
+.joke.is-loading .joker-button {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.joke.is-loading .joke-button .loader {
+  display: block;
+}

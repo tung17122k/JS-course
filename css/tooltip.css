@@ -1,0 +1,29 @@
+.text {
+  color: #3d6ef7;
+  display: block;
+  font-size: 20px;
+  margin: 150px auto;
+  width: max-content;
+}
+.tooltip {
+  position: relative;
+}
+.tooltip-text {
+  position: fixed;
+  /* transform: translateX(50%); */
+  background-color: #3d6ef7;
+  padding: 10px 20px;
+  display: block;
+  color: white;
+  border-radius: 20px;
+}
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-40%, 90%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #3d6ef7;
+}

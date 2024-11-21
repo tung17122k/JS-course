@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      button {
+        padding: 10px 20px;
+        background-color: #2cccff;
+        border-radius: 8px;
+        color: white;
+        border: none;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="increment" onclick="handleIncrement()">Increment</button>
+    <button class="decrement" onclick="handleDecrement()">Decrement</button>
+    <script>
+      // remote: ma , kenh , am luong
+      class Remote {
+        constructor(id, tv) {
+          this.id = id;
+          this.tv = tv;
+        }
+        setChannel(channel) {
+          this.tv.channel = channel;
+        }
+        // setVolume(volume) {
+        //   this.tv.volume = volume;
+        // }
+        setDecrement() {
+          this.tv.volume--;
+        }
+        setIncrement() {
+          this.tv.volume++;
+        }
+      }
+      // tivi : kenh, am luong
+      class Tivi {
+        status;
+        constructor(channel, volume) {
+          this.channel = channel;
+          this.volume = volume;
+        }
+
+        getStatus() {
+          if (this.status) {
+            alert("is on");
+          } else alert("is off");
+        }
+        turnOn() {
+          return (this.status = true);
+        }
+        turnOff() {
+          return (this.status = false);
+        }
+        getChannel() {
+          return this.channel;
+        }
+        getVolume() {
+          return this.volume;
+        }
+        setChannel(newChannel) {
+          this.channel = newChannel;
+        }
+      }
+      let Sony = new Tivi(2, 10);
+      let remotetv = new Remote(1, Sony);
+      Sony.turnOn();
+      Sony.getStatus();
+      Sony.setChannel(7);
+      console.log(Sony.getChannel());
+      remotetv.setChannel(3);
+      //   remotetv.setVolume(12);
+      console.log(`channel current: ${Sony.getChannel()}`);
+
+      function handleIncrement(e) {
+        remotetv.setIncrement();
+        console.log(`volume current: ${Sony.getVolume()}`);
+      }
+      function handleDecrement(e) {
+        remotetv.setDecrement();
+        console.log(`volume current: ${Sony.getVolume()}`);
+      }
+    </script>
+  </body>
+</html>

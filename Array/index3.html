@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ten, khoi luong , toc do
+      class Mouse {
+        status;
+        soundMouse;
+        constructor(name, weight, speed) {
+          this.name = name;
+          this.weight = weight;
+          this.speed = speed;
+        }
+        live() {
+          this.status = true;
+          console.log("mouse live");
+        }
+        die() {
+          this.status = false;
+          console.log("mouse die");
+        }
+        setSoundMouse(sound) {
+          if (this.status === true) {
+            this.soundMouse = sound;
+          }
+        }
+        getSoundMouse() {
+          return this.soundMouse;
+        }
+      }
+      // ten, khoi luong , toc do toi da
+      class Cat {
+        soundCat;
+        constructor(name, weight, speed, mouse) {
+          this.name = name;
+          this.weight = weight;
+          this.speed = speed;
+          this.mouse = mouse;
+        }
+        getWeight() {
+          return this.weight;
+        }
+        setSoundCat(sound) {
+          this.soundCat = sound;
+        }
+        getSoundCat() {
+          return this.soundCat;
+        }
+        catchMouse() {
+          if (this.mouse.status === true && this.speed > this.mouse.speed) {
+            console.log("catched mouse");
+            if (this.mouse.weight < this.weight) {
+              console.log("mouse was ATE");
+              this.mouse.die();
+            } else {
+              console.log("The mouse has not been eaten yet");
+            }
+          } else console.log("can't catch mouse");
+        }
+      }
+
+      let rat = new Mouse("Rat", 10, 10);
+      let cat = new Cat("Cat", 30, 30, rat);
+      rat.live();
+      rat.setSoundMouse("chit chit");
+      console.log(rat.getSoundMouse());
+      cat.setSoundCat("meomeo");
+      console.log(cat.getSoundCat());
+      cat.catchMouse();
+    </script>
+  </body>
+</html>

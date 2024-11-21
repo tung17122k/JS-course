@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      button {
+        padding: 5px 10px;
+      }
+      input {
+        padding: 10px 10px;
+      }
+      .flex {
+        margin-bottom: 10px;
+      }
+      h2 {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <input type="text" id="productName" placeholder="Enter product name" />
+      <input
+        type="number"
+        id="productPrice"
+        placeholder="Enter product price"
+      />
+      <input type="text" id="productColor" placeholder="Enter product color" />
+      <button id="add" onclick="{addProduct()}">Add</button>
+    </div>
+    <h2>Display Product</h2>
+    <table class="table">
+      <tr>
+        <th>Product name</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>Alfreds Futterkiste</td>
+        <td><button>Edit</button></td>
+        <td><button>Delete</button></td>
+      </tr>
+    </table>
+    <script>
+      class Product {
+        constructor(name, price, color) {
+          this.name = name;
+          this.price = price;
+          this.color = color;
+        }
+        setName(name) {
+          this.name = name;
+        }
+        getName() {
+          return this.name;
+        }
+        setPrice(price) {
+          this.price = price;
+        }
+        getPrice() {
+          return this.price;
+        }
+        setColor(color) {
+          this.color = color;
+        }
+        getColor() {
+          return this.color;
+        }
+      }
+      let product1 = new Product("Sony", 2000, "red");
+      let product2 = new Product("Samsung", 3000, "green");
+      let product3 = new Product("Apple", 4000, "yelow");
+      let arr = [product1, product2, product3];
+
+      let table = document.querySelector("table");
+
+      function displayProduct() {
+        let str = "";
+        for (let i = 0; i < arr.length; i++) {
+          str += "<tr>";
+          str += "<td>";
+          str += arr[i].getName();
+          str += "</td>";
+          str += "<td>";
+          str += arr[i].getPrice();
+          str += "</td>";
+          str += "<td>";
+          str += arr[i].getColor();
+          str += "</td>";
+          str +=
+            "<td><button onclick='editProduct(" + i + ")'>Edit</button></td>";
+          str +=
+            "<td><button onclick='deleteProduct(" +
+            i +
+            ")'>Delete</button></td>";
+          str += "</tr>";
+        }
+        document.querySelector(".table").innerHTML = str;
+      }
+      displayProduct(arr);
+
+      function addProduct() {
+        let productName = document.getElementById("productName").value.trim();
+        let productPrice = document.getElementById("productPrice").value.trim();
+        let productColor = document.getElementById("productColor").value.trim();
+        let product = new Product(productName, productPrice, productColor);
+        // console.log(productName.value);
+        if (productName !== "" && productPrice !== "" && productColor !== "") {
+          let product = new Product(productName, productPrice, productColor);
+          arr.push(product);
+          alert("Thêm sản phẩm thành công");
+          displayProduct(arr);
+
+          document.getElementById("productName").value = "";
+          document.getElementById("productPrice").value = "";
+          document.getElementById("productColor").value = "";
+        } else alert("enter product");
+      }
+      function deleteProduct(index) {
+        let check = confirm("Are you want to delete " + arr[index].getName());
+        if (check) {
+          arr.splice(index, 1);
+          displayProduct(arr);
+        }
+      }
+
+      function editProduct(i) {
+        let product = alert(`edit product name: ${arr[i].getName()}`);
+        let productName = prompt("productName: ");
+        let productPrice = prompt("productPrice: ");
+        let productColor = prompt("productColor: ");
+        arr[i].setName(productName);
+        arr[i].setColor(productColor);
+        arr[i].setPrice(productPrice);
+        alert("upadte thanh cong");
+        displayProduct(arr);
+      }
+    </script>
+  </body>
+</html>

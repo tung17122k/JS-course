@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="counter"></p>
+    <p class="max"></p>
+    <!-- <script>
+      //  Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
+      let counter = document.querySelector(".counter");
+      let maxer = document.querySelector(".max");
+      let arr = [1, 2, 3, 4, 5, 6, 7, 13, 12, 10, -2, -3];
+      let count = 0;
+      let max = arr[0];
+      let sum = 0;
+
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= 10) {
+          count++;
+          console.log(arr[i]);
+          //   console.log(count);
+          counter.textContent = count;
+        }
+      }
+      for (let j = 0; j < arr.length; j++) {
+        if (arr[j] > max) {
+          max = arr[j];
+          //   console.log(max);
+          maxer.textContent = max;
+        }
+      }
+      for (let j = 0; j < arr.length; j++) {
+        sum += arr[j];
+        console.log("🚀 ~ sum:", sum);
+        let average = sum / (arr.length - 1);
+        console.log("🚀 ~ average:", average);
+      }
+      for (let j = 0; j < arr.length; j++) {
+        if (arr[j] < 0) {
+          console.log(arr[j]);
+        }
+      }
+      let arrReverse = [];
+      for (let j = arr.length - 1; j >= 0; j--) {
+        arrReverse.push(arr[j]);
+        console.log(arrReverse);1
+      }
+    </script> -->
+    <script>
+      let arr = [];
+      for (let i = 0; i < 5; i++) {
+        let number = parseInt(prompt("nhap so thu " + (i + 1) + ":"));
+        arr.push(number);
+      }
+      //   console.log(arr);
+      let vi = parseInt(prompt("nhap so v: "));
+      for (let j = 0; j < arr.length; j++) {
+        if (arr[j] === vi) {
+          arr.splice(j, 1);
+          console.log(arr);
+        }
+      }
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] < arr[j]) {
+            let tg;
+            tg = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tg;
+          }
+        }
+      }
+      console.log(arr);
+    </script>
+  </body>
+</html>

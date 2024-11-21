@@ -1,0 +1,27 @@
+.menu {
+  width: 300px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  list-style: none;
+  transform: translateX(100%);
+  transition: transform 0.25s linear;
+}
+.menu.is-show {
+  transform: translateX(0);
+}
+.menu-link {
+  display: block;
+  text-decoration: none;
+  padding: 20px 15px;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+}
+.button {
+  font-size: 30px;
+  position: absolute;
+  left: 0;
+  top: 20px;
+}
